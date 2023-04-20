@@ -1,10 +1,19 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
+import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    console.log('Placing your Order');
+    router.push('/product');
+  }
+
   return (
     <>
       <Head>
@@ -22,6 +31,11 @@ export default function Home() {
         <Link href='/product'>
           Products
         </Link>
+      </div>
+      <div>
+        <button onClick={handleClick}>
+          Place Order
+        </button>
       </div>
     </>
   )
